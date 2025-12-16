@@ -1,14 +1,14 @@
-# 🎨 I'm Something of a Painter Myself: Monet Style Transfer (CycleGAN)
+# I'm Something of a Painter Myself: Monet Style Transfer (CycleGAN)
 
 This repository contains the TensorFlow implementation of a **Cycle Generative Adversarial Network (CycleGAN)** for the Kaggle competition, focusing on translating photographs into the distinctive artistic style of Claude Monet.
 
 The model is designed to be highly optimized for execution on **Google's TPU v3-8 accelerator** within the Kaggle/Colab environment.
 
-## 🚀 Project Goal
+## Project Goal
 
 The primary goal is to train a CycleGAN to learn the mapping function between a set of input photographs and a set of Monet paintings, without requiring paired training data. The result is a generator capable of transforming any new photograph into a Monet-esque image.
 
-## 🏗️ Architecture and Technical Highlights
+## Architecture and Technical Highlights
 
 The solution is built upon the standard CycleGAN architecture, incorporating two Generators ($G_{Photo \to Monet}, G_{Monet \to Photo}$) and two Discriminators ($D_{Monet}, D_{Photo}$).
 
@@ -26,7 +26,7 @@ The final, stable notebook incorporates several critical fixes necessary for sta
 3.  **TPU Initialization and Scope Management:** Ensured all models, optimizers, and the final `CycleGan` wrapper class were instantiated within the `tf.distribute.TPUStrategy` scope for distributed training across 8 TPU cores.
 4.  **Accelerated Inference for Submission:** Optimized the final image generation step by using a large **Batch Size (e.g., 16 or 32)** and ensuring the forward pass ran entirely within the `strategy.scope()`, mitigating the risk of the session timing out due to slow CPU-bound generation.
 
-## ⚙️ How to Run the Notebook
+## How to Run the Notebook
 
 This notebook is designed to be run on Kaggle or Google Colab with the TPU enabled.
 
